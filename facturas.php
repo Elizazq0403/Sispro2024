@@ -30,9 +30,9 @@
 		<div class="panel panel-info">
 		<div class="panel-heading">
 		    <div class="btn-group pull-right">
-				<a  href="nueva_factura.php" class="btn btn-info"><span class="glyphicon glyphicon-plus" ></span> Nueva Factura</a>
+				<a  href="nueva_factura.php" class="btn btn-info"><span class="glyphicon glyphicon-plus" ></span> Nuevo Programa</a>
 			</div>
-			<h4><i class='glyphicon glyphicon-search'></i> Buscar Facturas</h4>
+			<h4><i class='glyphicon glyphicon-search'></i> Buscar Programas</h4>
 		</div>
 			<div class="panel-body">
 				<form class="form-horizontal" role="form" id="datos_cotizacion">

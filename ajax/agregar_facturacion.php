@@ -47,6 +47,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 	{
 	$id_tmp=$row["id_tmp"];
 	$codigo_producto=$row['codigo_producto'];
+	$descripcion=$row['descripcion'];
 	$cantidad=$row['cantidad_tmp'];
 	$nombre_producto=$row['nombre_producto'];
 	
@@ -64,6 +65,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 			<td class='text-center'><?php echo $codigo_producto;?></td>
 			<td class='text-center'><?php echo $cantidad;?></td>
 			<td><?php echo $nombre_producto;?></td>
+			<td><?php echo $descripcion;?></td>
 			<td class='text-right'><?php echo $precio_venta_f;?></td>
 			<td class='text-right'><?php echo $precio_total_f;?></td>
 			<td class='text-center'><a href="#" onclick="eliminar('<?php echo $id_tmp ?>')"><i class="glyphicon glyphicon-trash"></i></a></td>

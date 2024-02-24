@@ -38,7 +38,7 @@
 			?>
 			<div class="alert alert-danger alert-dismissible" role="alert">
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  <strong>Error!</strong> No se pudo eliminar éste  producto. Existen cotizaciones vinculadas a éste producto. 
+			  <strong>Error!</strong> No se pudo eliminar éste  producto. Existen programaciones vinculadas a éste producto. 
 			</div>
 			<?php
 		}
@@ -49,7 +49,7 @@
 	if($action == 'ajax'){
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
-		 $aColumns = array('codigo_producto', 'nombre_producto');//Columnas de busqueda
+		 $aColumns = array('codigo_producto', 'nombre_producto', 'descripcion');//Columnas de busqueda
 		 $sTable = "products";
 		 $sWhere = "";
 		if ( $_GET['q'] != "" )
@@ -87,6 +87,8 @@
 				<tr  class="info">
 					<th>Código</th>
 					<th>Producto</th>
+					<th>Descripcion</th> 
+					<th>Descripcion Prod.</th>
 					<th>Estado</th>
 					<th>Agregado</th>
 					<th class='text-right'>Precio</th>

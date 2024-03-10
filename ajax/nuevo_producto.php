@@ -5,6 +5,8 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
            $errors[] = "Código vacío";
         } else if (empty($_POST['nombre'])){
 			$errors[] = "Nombre del producto vacío";
+		} else if (empty($_POST['descripcion'])){
+			$errors[] = "Descripcion vacía";
 		} else if ($_POST['estado']==""){
 			$errors[] = "Selecciona el estado del producto";
 		} else if (empty($_POST['precio'])){
@@ -12,6 +14,7 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
 		} else if (
 			!empty($_POST['codigo']) &&
 			!empty($_POST['nombre']) &&
+			!empty($_POST['descripcion']) &&
 			$_POST['estado']!="" &&
 			!empty($_POST['precio'])
 		){
@@ -21,10 +24,11 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$codigo=mysqli_real_escape_string($con,(strip_tags($_POST["codigo"],ENT_QUOTES)));
 		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
+		$descripcion=mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));
 		$estado=intval($_POST['estado']);
 		$precio_venta=floatval($_POST['precio']);
 		$date_added=date("Y-m-d H:i:s");
-		$sql="INSERT INTO products (codigo_producto, nombre_producto, status_producto, date_added, precio_producto) VALUES ('$codigo','$nombre','$estado','$date_added','$precio_venta')";
+		$sql="INSERT INTO products (codigo_producto, nombre_producto, descripcion, status_producto, date_added, precio_producto) VALUES ('$codigo','$nombre','$descripcion','$estado','$date_added','$precio_venta')";
 		$query_new_insert = mysqli_query($con,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";

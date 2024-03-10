@@ -88,7 +88,6 @@
 					<th>Código</th>
 					<th>Producto</th>
 					<th>Descripcion</th> 
-					<th>Descripcion Prod.</th>
 					<th>Estado</th>
 					<th>Agregado</th>
 					<th class='text-right'>Precio</th>
@@ -100,6 +99,7 @@
 						$id_producto=$row['id_producto'];
 						$codigo_producto=$row['codigo_producto'];
 						$nombre_producto=$row['nombre_producto'];
+						$descripcion=$row['descripcion']; //adicione este
 						$status_producto=$row['status_producto'];
 						if ($status_producto==1){$estado="Activo";}
 						else {$estado="Inactivo";}
@@ -109,12 +109,22 @@
 					
 					<input type="hidden" value="<?php echo $codigo_producto;?>" id="codigo_producto<?php echo $id_producto;?>">
 					<input type="hidden" value="<?php echo $nombre_producto;?>" id="nombre_producto<?php echo $id_producto;?>">
+					<input type="hidden" value="<?php echo $descripcion;?>" id="descripcion<?php echo $id_producto;?>">
 					<input type="hidden" value="<?php echo $status_producto;?>" id="estado<?php echo $id_producto;?>">
 					<input type="hidden" value="<?php echo number_format($precio_producto,2,'.','');?>" id="precio_producto<?php echo $id_producto;?>">
+
+					<?php 
+
+					$convertir=url($descripcion); // esta funcion url convierte en link a la variable $descripcion
+
+					?>
+
 					<tr>
 						
 						<td><?php echo $codigo_producto; ?></td>
 						<td ><?php echo $nombre_producto; ?></td>
+						<td ><?php echo $convertir; ?></td>
+					
 						<td><?php echo $estado;?></td>
 						<td><?php echo $date_added;?></td>
 						<td><?php echo $simbolo_moneda;?><span class='pull-right'><?php echo number_format($precio_producto,2);?></span></td>

@@ -27,7 +27,12 @@
 				  
 				</div>
 			  </div>
-			  
+			  <div class="form-group">
+				<label for="descripcion" class="col-sm-3 control-label">Descripción</label>
+				<div class="col-sm-8">
+					<textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" required maxlength="255" ></textarea>
+				</div>
+			  </div>
 			  <div class="form-group">
 				<label for="estado" class="col-sm-3 control-label">Estado</label>
 				<div class="col-sm-8">

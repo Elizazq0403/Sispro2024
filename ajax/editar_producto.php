@@ -7,6 +7,8 @@
            $errors[] = "Código vacío";
         } else if (empty($_POST['mod_nombre'])){
 			$errors[] = "Nombre del producto vacío";
+		} else if (empty($_POST['descripcion'])){
+			$errors[] = "Descripcion vacía";
 		} else if ($_POST['mod_estado']==""){
 			$errors[] = "Selecciona el estado del producto";
 		} else if (empty($_POST['mod_precio'])){
@@ -15,6 +17,7 @@
 			!empty($_POST['mod_id']) &&
 			!empty($_POST['mod_codigo']) &&
 			!empty($_POST['mod_nombre']) &&
+			!empty($_POST['descripcion']) &&
 			$_POST['mod_estado']!="" &&
 			!empty($_POST['mod_precio'])
 		){
@@ -23,11 +26,12 @@
 		require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$codigo=mysqli_real_escape_string($con,(strip_tags($_POST["mod_codigo"],ENT_QUOTES)));
+		$descripcion=mysqli_real_escape_string($con,(strip_tags($_POST["descripcion"],ENT_QUOTES)));
 		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["mod_nombre"],ENT_QUOTES)));
 		$estado=intval($_POST['mod_estado']);
 		$precio_venta=floatval($_POST['mod_precio']);
 		$id_producto=$_POST['mod_id'];
-		$sql="UPDATE products SET codigo_producto='".$codigo."', nombre_producto='".$nombre."', status_producto='".$estado."', precio_producto='".$precio_venta."' WHERE id_producto='".$id_producto."'";
+		$sql="UPDATE products SET codigo_producto='".$codigo."', nombre_producto='".$nombre."', descripcion='".$descripcion."', status_producto='".$estado."', precio_producto='".$precio_venta."' WHERE id_producto='".$id_producto."'";
 		$query_update = mysqli_query($con,$sql);
 			if ($query_update){
 				$messages[] = "Producto ha sido actualizado satisfactoriamente.";

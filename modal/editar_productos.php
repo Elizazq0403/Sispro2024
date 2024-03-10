@@ -26,7 +26,12 @@
 				  <textarea class="form-control" id="mod_nombre" name="mod_nombre" placeholder="Nombre del producto" required></textarea>
 				</div>
 			  </div>
-			  
+			  <div class="form-group">
+				<label for="descripcion" class="col-sm-3 control-label">Descripción</label>
+				<div class="col-sm-8">
+					<textarea class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" required maxlength="255" ></textarea>
+				</div>
+			  </div>
 			  <div class="form-group">
 				<label for="mod_estado" class="col-sm-3 control-label">Estado</label>
 				<div class="col-sm-8">

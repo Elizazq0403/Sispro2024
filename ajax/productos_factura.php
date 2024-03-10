@@ -14,7 +14,7 @@
 	if($action == 'ajax'){
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
-		 $aColumns = array('codigo_producto', 'nombre_producto');//Columnas de busqueda
+		 $aColumns = array('codigo_producto', 'nombre_producto', 'descripcion');//Columnas de busqueda
 		 $sTable = "products";
 		 $sWhere = "";
 		if ( $_GET['q'] != "" )
@@ -51,6 +51,7 @@
 				<tr  class="warning">
 					<th>Código</th>
 					<th>Producto</th>
+					<th>Descripción</th>
 					<th><span class="pull-right">Cant.</span></th>
 					<th><span class="pull-right">Precio</span></th>
 					<th class='text-center' style="width: 36px;">Agregar</th>
@@ -60,12 +61,14 @@
 					$id_producto=$row['id_producto'];
 					$codigo_producto=$row['codigo_producto'];
 					$nombre_producto=$row['nombre_producto'];
+					$descripcion=$row['descripcion'];
 					$precio_venta=$row["precio_producto"];
 					$precio_venta=number_format($precio_venta,2,'.','');
 					?>
 					<tr>
 						<td><?php echo $codigo_producto; ?></td>
 						<td><?php echo $nombre_producto; ?></td>
+						<td><?php echo $descripcion; ?></td>
 						<td class='col-xs-1'>
 						<div class="pull-right">
 						<input type="text" class="form-control" style="text-align:right" id="cantidad_<?php echo $id_producto; ?>"  value="1" >

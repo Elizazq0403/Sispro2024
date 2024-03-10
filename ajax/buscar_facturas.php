@@ -89,6 +89,7 @@
 						if ($estado_factura==1){$text_estado="Pagada";$label_class='label-success';}
 						else{$text_estado="Pendiente";$label_class='label-warning';}
 						$total_venta=$row['total_venta'];
+						//$cant_total=$row['Cantidad_Total'];
 					?>
 					<tr>
 						<td><?php echo $numero_factura; ?></td>

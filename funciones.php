@@ -7,3 +7,16 @@ function get_row($table,$row, $id, $equal){
 	return $value;
 }
 ?>
+
+<?php
+
+// se define la funcion
+function url($text)
+{
+	$text = html_entity_decode($text);
+	$text = " ".$text;
+	$text = preg_replace('/(https{0,1}:\/\/[\w\-\.\/#?&=]*)/','<a href="$1" target="_black">$1</a>',$text);
+	return $text;
+}
+
+?>

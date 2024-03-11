@@ -64,7 +64,7 @@
     <div class="container">
 	<div class="panel panel-info">
 		<div class="panel-heading">
-			<h4><i class='glyphicon glyphicon-edit'></i> Editar Factura</h4>
+			<h4><i class='glyphicon glyphicon-edit'></i> Editar Programa</h4>
 		</div>
 		<div class="panel-body">
 		<?php 
@@ -124,8 +124,8 @@
 							</div>
 							<div class="col-md-2">
 								<select class='form-control input-sm ' id="estado_factura" name="estado_factura">
-									<option value="1" <?php if ($estado_factura==1){echo "selected";}?>>Pagado</option>
-									<option value="2" <?php if ($estado_factura==2){echo "selected";}?>>Pendiente</option>
+									<option value="1" <?php if ($estado_factura==1){echo "selected";}?>>Entregado</option>
+									<option value="2" <?php if ($estado_factura==2){echo "selected";}?>>En proceso</option>
 								</select>
 							</div>
 						</div>

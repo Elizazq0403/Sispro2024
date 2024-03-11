@@ -4,6 +4,7 @@
 	Web: obedalvarado.pw
 	Mail: info@obedalvarado.pw
 	---------------------------*/
+
 include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 $id_factura= $_SESSION['id_factura'];
 $numero_factura= $_SESSION['numero_factura'];
@@ -13,7 +14,7 @@ if (isset($_POST['precio_venta'])){$precio_venta=floatval($_POST['precio_venta']
 
 	/* Connect To Database*/
 	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
-	require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
+	require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos	
 	//Archivo de funciones PHP
 	include("../funciones.php");
 if (!empty($id) and !empty($cantidad) and !empty($precio_venta))
@@ -32,6 +33,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 <tr>
 	<th class='text-center'>CODIGO</th>
 	<th class='text-center'>CANT.</th>
+	<th>PRODUCTO</th>
 	<th>DESCRIPCION</th>
 	<th class='text-right'>PRECIO UNIT.</th>
 	<th class='text-right'>PRECIO TOTAL</th>
@@ -46,7 +48,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 	$codigo_producto=$row['codigo_producto'];
 	$cantidad=$row['cantidad'];
 	$nombre_producto=$row['nombre_producto'];
-	
+	$descripcion=$row['descripcion']; //adicione este
 	
 	$precio_venta=$row['precio_venta'];
 	$precio_venta_f=number_format($precio_venta,2);//Formateo variables
@@ -55,12 +57,19 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 	$precio_total_f=number_format($precio_total,2);//Precio total formateado
 	$precio_total_r=str_replace(",","",$precio_total_f);//Reemplazo las comas
 	$sumador_total+=$precio_total_r;//Sumador
-	
+	//$sumador_cant+=$cantidad;//Sumador cantidad
+	?>
+
+		<?php 
+
+		$convertir=url($descripcion); // esta funcion url convierte en link a la variable $descripcion
+
 		?>
 		<tr>
 			<td class='text-center'><?php echo $codigo_producto;?></td>
 			<td class='text-center'><?php echo $cantidad;?></td>
 			<td><?php echo $nombre_producto;?></td>
+			<td><?php echo $convertir;?></td>
 			<td class='text-right'><?php echo $precio_venta_f;?></td>
 			<td class='text-right'><?php echo $precio_total_f;?></td>
 			<td class='text-center'><a href="#" onclick="eliminar('<?php echo $id_detalle ?>')"><i class="glyphicon glyphicon-trash"></i></a></td>

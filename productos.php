@@ -127,12 +127,14 @@ $( "#editar_producto" ).submit(function( event ) {
 	function obtener_datos(id){
 			var codigo_producto = $("#codigo_producto"+id).val();
 			var nombre_producto = $("#nombre_producto"+id).val();
+			var descripcion = $("#descripcion"+id).val();
 			var estado = $("#estado"+id).val();
 			var precio_producto = $("#precio_producto"+id).val();
 			$("#mod_id").val(id);
 			$("#mod_codigo").val(codigo_producto);
 			$("#mod_nombre").val(nombre_producto);
-			$("#mod_precio").val(precio_producto);
+			$("#mod_nombre").val(nombre_producto);
+			$("#mod_descripcion").val(descripcion);
 			$("#mod_estado").val(estado);
 		}
 </script>

@@ -67,7 +67,7 @@
 			<div class="table-responsive">
 			  <table class="table">
 				<tr  class="info">
-					<th>#</th>
+					<th># Progr</th>
 					<th>Fecha</th>
 					<th>Cliente</th>
 					<th>Vendedor</th>

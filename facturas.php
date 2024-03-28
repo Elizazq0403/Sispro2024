@@ -40,7 +40,7 @@
 						<div class="form-group row">
 							<label for="q" class="col-md-2 control-label">Cliente o # de Programa</label>
 							<div class="col-md-5">
-								<input type="text" class="form-control" id="q" placeholder="Nombre del cliente o # de factura" onkeyup='load(1);'>
+								<input type="text" class="form-control" id="q" placeholder="Nombre del cliente, estado (1 ó 2) o # de programa" onkeyup='load(1);'>
 							</div>
 							
 							

@@ -40,7 +40,7 @@
 		 $sWhere.=" WHERE facturas.id_cliente=clientes.id_cliente and facturas.id_vendedor=users.user_id";
 		if ( $_GET['q'] != "" )
 		{
-		$sWhere.= " and  (clientes.nombre_cliente like '%$q%' or facturas.numero_factura like '%$q%')";
+		$sWhere.= " and  (clientes.nombre_cliente like '%$q%' or facturas.numero_factura like '%$q%' or facturas.estado_factura like '%$q%')";
 			
 		}
 		
